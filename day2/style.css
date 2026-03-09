@@ -1,0 +1,16 @@
+
+div{ color: green;}
+/* #아이디 구분 */
+#title{
+        font-weight: bold;
+        font-size: 30px;
+        color: blue;
+    }
+/* .클래스 구분 */
+.subject{
+        font-style: italic;
+        }
+.core{
+        text-decoration: underline;
+        }
+  

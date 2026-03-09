@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /*바깥쪽 여백은 margin을 사용(안쪽여백은 padding)*/
+            /*top, bottom,left,right 개별 적용 가능*/
+            /*2개씩([top,borrom],[left.right]) 혹은 4개를 한번에 적용 가능*/
+
+            /*개별적용*/
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-left: 10px;
+            margin-right: 5xp;
+
+            /*4개를 margin 속성 하나로*/
+            margin : 10px 5px 5px 10px; /*top,right,bottom,left*/
+            /*2개씩 묶어서*/
+            margin : 5px 10px; /*top,bottom :5px, left,right : 10px*/
+
+            /*하번에 일괄 적용*/
+            margin : 10px; /* top,bottom,left,right : 10px*/
+        }
+        .box1 {
+            width: 200px;
+            height: 200px;
+            border : 2px solid black;
+            background-color: azure;
+            text-align: center;
+            line-height: 200px;
+        }
+        .box2 { 
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            border : 2px solid black;
+            background-color: azure;
+            text-align: center;
+            line-height: 200px;
+            /*border-radius: 10px; /* 모서리를 둥글게 */
+            border-radius: 50%;
+        }
+        .pd{
+            padding : 60px 10px 30px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1 pd">box1</div>
+    <div class="box2">box2</div>
+</body>
+</html>
