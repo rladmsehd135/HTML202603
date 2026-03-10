@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+        }
+        .box1{
+            background-color: black;
+        }
+        .box2{
+            background-color: blue;
+            position: relative;
+            top: 10px;
+            left: 30px;
+
+        }
+        .box3{
+            background-color: green;
+            position: fixed;
+            top: 50px;
+            right:50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- position의 디폴트 값은 static -->
+     <!-- static은 태그 특징에 맞게 있어야할 위치에 위치되는걸 의미 -->
+    <div class = "box1">box1</div>
+    <!-- relative는 현재 위치(static)를 기준으로  -->
+    <!-- top,bottom,left,right 속성을 통해 위치 조정 가능 -->
+    <div class = "box2">box2</div>
+    <!-- fixed 좌표(x,y)로 생각하면 된다. -->
+    <!-- 원하는 top,bottome,left,right 값을 통해 위치 지정 -->
+    <!-- 스크롤이 이동해도 위치는 고정 된다 -->
+    <div class = "box3">box3</div>
+    <div style="margin-bottom: 10000px;"></div>
+</body>
+</html>
