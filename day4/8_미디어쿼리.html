@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 1200px;
+            margin: 50px auto;
+
+        }
+        .card{
+            position: relative;
+            width: 550px;
+            height: 250px;
+            margin: 10px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            background-color: rgb(245, 245, 177);
+            float: left;
+        }
+        img{
+            width: 270px;
+            height: 245px;
+        }
+        .word{
+            position: absolute;
+            left: 310px;
+            top:60px;
+            text-align: center;
+            width: 200px;
+        }
+          @media screen and (max-width : 1024px){
+            #container{
+                width: 600px;
+            }
+            .card{
+                clear:both;
+            }
+        }
+        @media screen and (max-width : 600px){
+             #container{
+                width: 350px;
+            }
+            .card{
+                width: 274px;
+                height: 500px;
+            }
+            .word{
+                left: 40px;
+                top:300px
+        }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="card">
+            <img src = "../media/2.jfif">
+            <div class ="word">
+                <h2>어흥</h2>
+                <h3>-라이언-</h3>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src = "../media/3.jfif">
+            <div class ="word">
+                <h2>놀고싶다</h2>
+                <h3>-짱구-</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
