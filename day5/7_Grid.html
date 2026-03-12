@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 700px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-rows: 100px 200px; */
+            /* grid-template-columns: repeate(3,ifr); */
+            grid-auto-rows: minmax(100px, auto);
+
+        }
+        .box{
+            border:1px solid black;
+            padding: 5px 10px;
+            text-align: center;
+            font-size: 15px;
+
+        }
+        .box:nth-child(odd){ /*tr태그중에 2번째 요소만 적용*/
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="box">동영상이랑 수입마다 초등학생처럼은 친구로다가 도굼뜨다. 하드웨어에다 쿠션처럼 회의뿐 PC마저 취소조차개선하다. 아침따라는 창문마다 이불을 옷걸이와 폴더의 안경조이다. 후기에게도 연사라고 도로이랑 녹음거나 결제이나관리하다. 강의로써 이동더러 평가로서 아파트뿐은 사용자로도원하다. 관리비대로 면도기께는 영수증과는 잘라내기으로 예상하다. 광고께는 작가마다 어린이.</div>
+        <div class="box">결제으로서 보도나 칫솔에게는 잡지이라고 목록께빠뜨리다. 상담로다가 공지으로서 구독자하고는 영수증마냥 청정하다. 구직자으로다가 저자따라 버터치고는 버터이든지 사악하다. 프라이팬으로써 가스한테서 쓰리룸으로써 교사마는 모씻다. 음악에다 의자은 친구마냥 보험만큼은 오빠한테서 즐겁다. 메신저으로는 간호사마는 아침마냥은 리눅스께서 재빠르다. 계약이라고 승인에게 다리.</div>
+        <div class="box">ㅎㅎㅎ</div>
+        <div class="box"> 안녕하세요</div> 
+        <div class="box">ㅋㅋㅋㅋ</div>
+        <div class="box">6</div>
+    </div>
+</body>
+</html>

@@ -26,7 +26,7 @@
 
 .sidebar{
     width:300px;
-    background:linear-gradient(135deg,#4f6df5,#6a5af9);
+    background: linear-gradient(#2f52ec,rgb(123, 130, 224)); 
     color:white;
     text-align:center;
     padding:30px;
@@ -119,6 +119,13 @@ h2{
     transform:translateY(-8px);
     box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
+#time{
+    font-size: 15px;
+    font-weight: bold;
+    color:#2f52ec;
+    text-align: center;
+    float: right;
+}
     </style>
 </head>
 <body>
@@ -144,6 +151,11 @@ h2{
         </div>
 
         <button class="btn">SNS</button>
+
+        <div class="info">
+            <p></p>
+
+        </div>
 
     </aside>
 
@@ -182,6 +194,11 @@ h2{
                     <p>웹페이지 구조 및 스타일 제작</p>
                 </div>
 
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <p>머신러닝</p>
+                </div>
+
             </div>
 
         </section>
@@ -191,14 +208,28 @@ h2{
             <h2>🚀 Goal</h2>
 
             <p>
-            다양한 프로젝트 경험을 통해  
+            다양한 프로젝트 경험을 통해 실력향상과
             <span class="highlight">풀스텍 개발자</span>로 성장하는 것이 목표입니다.
+            
             </p>
-
+            
         </section>
+        <div id="time"></div>
 
     </main>
 
 </div>
 </body>
 </html>
+<script>
+setInterval(()=>{
+    let datetime = new Date()
+    let obj = document.querySelector("#time");
+    let second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+    let minutes = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+    let time = datetime.getHours() + " : "
+    + datetime.getMinutes() + " : "
+    + second;
+    obj.innerHTML = time;
+},1000)
+</script>

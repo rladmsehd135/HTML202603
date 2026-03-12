@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+    body{
+        background:#e5e5e5;
+        font-family:Arial;
+    }
+
+    .container{
+        display:flex;
+        justify-content:center;
+        margin:auto;
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+
+    .card{
+        
+        width:300px;
+        background:white;
+        margin: 20px;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        text-align:center;
+        
+    }
+
+    .card img{
+        border : 1px solid rgb(201, 201, 201);
+        width:150px;
+        height:150px;
+        border-radius:15px;
+
+    }
+
+    .card h3{
+        margin-top:15px;
+    }
+
+    .card p{
+        color:#666;
+        font-size:14px;
+        margin:10px 20px;
+    }
+
+    button{
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+    }
+
+    
+
+    </style>
+<body>
+       
+    <div class="container">
+
+        <div class="card">
+            <img src="../media/1.jfif">
+            <h3>상품 A</h3>
+            <p>이 상품은 아주 훌륭합니다. 설명할 필요가 없어요</p>
+            <button>구매하기</button>
+        </div>
+
+        <div class="card">
+            <img src="../media/2.jfif">
+            <h3>상품 B</h3>
+            <p>이 상품은 기가 막힙니다. 꼭 구매하세요. 가성비 좋고 어쩌고 저쩌고 그냥 좋습니다. ㅎㅎ</p>
+            <button>구매하기</button>
+        </div>
+
+        <div class="card">
+            <img src="../media/3.jfif">
+            <h3>상품 C</h3>
+            <p>최고의 가성비.</p>
+            <button>구매하기</button>
+        </div>
+
+    </div>
+      
+    
+</body>
+</html>
