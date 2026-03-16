@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- html. 반드시 id가 app인 태그 안에서 작업 -->
+        <!-- (script 맨 하단 app.mount('#app'); 여기 아이디와 같아야 함) -->
+        
+        <div>
+            아이디 : <input v-model="userId"> 
+            <span v-if="userId.length < 1"></span>
+            <span v-else-if="userId.length < 5" style="font-size: 8px; color: red;">아이디는 5글자 이상</span>
+            <span v-else style="font-size: 8px; color: blue;">사용 가능!</span>
+        </div>
+        <div>
+            비밀번호 : <input v-model="userpwd1">
+        </div>
+        <div>
+            비밀번호 확인 : <input v-model = "userpwd2">
+        </div>
+        
+        <div>
+            <button @click="fnjoin">가입</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                // 변수 - (key : value)
+                userId : ""
+            };
+        },
+        methods: {
+            // 함수(메소드) - (key : function())
+            fnjoin: function () {
+                if(this.userId.length < 4){
+                    alert("아아디는 5글자 이상");
+                    return;
+                }
+
+                if(this.userpwd1 != this.userpwd2){
+                    alert("비밀번호 중복 확인 바람");
+                    return;
+                }
+                if(this.userpwd1.length < 6){
+                    alert("비밀번호는 6글자 이상");
+                    return;
+                }
+                alert("가입완료");
+                }
+            },
+            //패스워드 크기는 6이상
+            //2개의 패스워드가 동일한지 체크
+
+         // methods
+        mounted() {
+            // 처음 시작할 때 실행되는 부분
+        }
+    });
+
+    app.mount('#app');
+</script>

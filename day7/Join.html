@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#e9f0ff,#d6e4ff);
+            
+        }
+
+        .container{
+            width:350px;
+            height: 600px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+            text-align:center;
+        }
+        h1{
+            margin-bottom:10px;
+        }
+        .sub{
+            color:#8aa0c6;
+            font-size:14px;
+            margin-bottom:30px;
+        }
+
+       
+        .input-box{
+            margin-bottom:20px;
+            text-align:left;
+            
+        }
+
+        .input-box label{
+            font-size:14px;
+            font-weight:bold;
+        }
+
+        .input-box input{
+            width:90%;
+            padding:10px;
+            margin-top:6px;
+            border-radius:8px;
+            border:1px solid #ccc;
+            font-size:14px;
+        }
+        .btn{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:30px;
+            background:linear-gradient(90deg,#5b7cff,#4a6cf7);
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+       
+        button:hover{
+            transform:scale(1.03);
+            transition:0.2s;
+            background:linear-gradient(90deg,#455ec2,#3952b6);
+        }
+
+        .bottom{
+            margin-top:20px;
+            font-size:13px;
+            color:#8aa0c6;
+        }
+
+        .bottom a{
+            text-decoration:none;
+            color:#4a6cf7;
+        }
+        .highlight{
+        color:#4f6df5;
+        font-weight:bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+
+            <h1>회원가입</h1>
+            <div class="sub">새로운 계정을 만들어 서비스를 시작하세요</div>
+
+            <div class="input-box">
+            <label>이름</label>
+            <input type="text" placeholder="홍길동">
+            </div>
+
+            <div class="input-box">
+            <label>아이디</label> 
+            <input type="text" v-model="userId" placeholder="아이디를 입력하세요"> 
+            <button @click="fnCheck">중복체크</button>
+            </div>
+
+            <div class="input-box">
+            <label>비밀번호</label>
+            <input type="password" placeholder="8자 이상 입력">
+            </div>
+
+            <div class="input-box">
+            <label>비밀번호확인</label>
+            <input type="password" placeholder="비밀번호 다시 입력해주세요">
+            </div>
+             <button class="btn" @click="fnLogin()">
+                가입하기
+            </button>
+
+            
+            
+            <div class="sub">
+                이미 계정이 있으신가요? <a class = "highlight" href="../day7/Login.html">로그인</a>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                // 변수 - (key : value)
+                userId : ""
+              
+            };
+        },
+        methods: {
+            // 함수(메소드) - (key : function())
+            fnCheck: function () {
+                let self = this;
+                let param = {
+                    userId : self.userId
+                };
+                $.ajax({
+                    url: "http://192.168.30.57:3009/id-check",
+                    dataType: "json",
+                    type: "GET",
+                    data : param,
+                    success: function (data) {
+                        console.log(data);
+        
+                    }
+                });
+            }
+        }, // methods
+        mounted() {
+            // 처음 시작할 때 실행되는 부분
+        }
+    });
+
+    app.mount('#app');
+</script>
