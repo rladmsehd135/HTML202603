@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
+
         body{
             margin:0;
             height:100vh;
@@ -20,16 +21,20 @@
 
         .container{
             width:350px;
-            height: 600px;
+            height: 500px;
             background:white;
             padding:40px;
             border-radius:20px;
             box-shadow:0 10px 30px rgba(0,0,0,0.1);
             text-align:center;
         }
+
+     
         h1{
             margin-bottom:10px;
         }
+
+      
         .sub{
             color:#8aa0c6;
             font-size:14px;
@@ -40,7 +45,6 @@
         .input-box{
             margin-bottom:20px;
             text-align:left;
-            
         }
 
         .input-box label{
@@ -50,12 +54,16 @@
 
         .input-box input{
             width:90%;
-            padding:10px;
-            margin-top:6px;
+            padding:12px;
+            margin-top:5px;
             border-radius:8px;
             border:1px solid #ccc;
             font-size:14px;
         }
+
+
+
+      
         .btn{
             width:100%;
             padding:15px;
@@ -76,6 +84,7 @@
             background:linear-gradient(90deg,#455ec2,#3952b6);
         }
 
+       
         .bottom{
             margin-top:20px;
             font-size:13px;
@@ -83,12 +92,8 @@
         }
 
         .bottom a{
-            text-decoration:none;
+            
             color:#4a6cf7;
-        }
-        .highlight{
-        color:#4f6df5;
-        font-weight:bold;
         }
 
     </style>
@@ -97,66 +102,63 @@
     <div id="app">
         <div class="container">
 
-            <h1>회원가입</h1>
-            <div class="sub">새로운 계정을 만들어 서비스를 시작하세요</div>
+            <h1>환영합니다</h1>
+            <div class="sub">서비스를 이용을 위해 로그인해주세요</div>
+
+        
 
             <div class="input-box">
-            <label>이름</label>
-            <input type="text" placeholder="홍길동">
-            </div>
-
-            <div class="input-box">
-            <label>아이디</label> 
-            <input type="text" v-model="userId" placeholder="아이디를 입력하세요"> 
-            <button @click="fnCheck">중복체크</button>
+            <label>아이디</label>
+            <input type="text" v-model="userId" placeholder="아이디를 입력하세요">
             </div>
 
             <div class="input-box">
             <label>비밀번호</label>
-            <input type="password" placeholder="8자 이상 입력">
+            <input @keyup.enter="fnLogin()" type="password" v-model="pwd" placeholder="비밀번호를 입력하세요">
             </div>
 
-            <div class="input-box">
-            <label>비밀번호확인</label>
-            <input type="password" placeholder="비밀번호 다시 입력해주세요">
-            </div>
-             <button class="btn" @click="fnLogin()">
-                가입하기
+            <button class="btn" @click="fnLogin()">
+                로그인
             </button>
-
-            
-            
-            <div class="sub">
-                이미 계정이 있으신가요? <a class = "highlight" href="../day7/Login.html">로그인</a>
+    
+            <a href="#">비밀번호 찾기</a> | <a href="../day7/Join.html">회원가입</a>
             </div>
+
         </div>
-    </div>    
+    </div>
 </body>
+</html>
 </html>
 <script>
     const app = Vue.createApp({
         data() {
             return {
                 // 변수 - (key : value)
-                userId : ""
-              
+                userId : "",
+                pwd : ""
             };
         },
         methods: {
             // 함수(메소드) - (key : function())
-            fnCheck: function () {
+            fnLogin: function () {
                 let self = this;
                 let param = {
-                    userId : self.userId
+                    userId : self.userId,
+                    pwd : self.pwd
                 };
                 $.ajax({
-                    url: "http://192.168.30.57:3009/id-check",
+                    url: "http://192.168.30.57:3009/login",
                     dataType: "json",
                     type: "GET",
                     data : param,
+                    // data: {userId : self.userId, pwd : self.pwd},
                     success: function (data) {
                         console.log(data);
-        
+                        alert(data.message);
+                        if(data.success){
+                             location.href="Main.html";
+                        }
+                        
                     }
                 });
             }
@@ -168,3 +170,5 @@
 
     app.mount('#app');
 </script>
+
+
