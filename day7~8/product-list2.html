@@ -47,7 +47,7 @@
                 </div>
                 <table>
                     <tr>
-                        <th>선택</th>
+                        <th><input type="checkbox" @change="fnAllCheck"></th>
                         <th>제품번호</th>
                         <th>제품명</th>
                         <th>브랜드명</th>
@@ -56,7 +56,7 @@
                         <th>삭제</th>
                     </tr>
                     <tr v-for="item in list">
-                        <td><input type="radio" v-model="productId" :value="item.PRODUCT_ID" name="product"></td>
+                        <td><input type="checkbox" v-model="productIdList" :value="item.PRODUCT_ID" name="product"></td>
                         <td>{{item.PRODUCT_ID}}</td>
                         <td>{{item.PRODUCT_NAME}}</td>
                         <td>{{item.BRAND}}</td>
@@ -85,7 +85,8 @@
                 list : [],
                 keyword : "",
                 brand : "",
-                productId : ""
+                productIdList : [],
+                checkFlg : false
             };
         },
         methods: {
@@ -105,7 +106,19 @@
             },
             fnRemove : function(){
                 let self = this;
-                console.log(self.productId);
+                if(!confirm("정말 삭제?")){
+                    return;
+                }
+                $.ajax({
+                    url: "http://192.168.30.57:3009/product/delete-list",
+                    dataType: "json",
+                    type: "GET",
+                    traditional: true,
+                    data: {productIdList : self.productIdList},
+                    success: function (data) {
+                        self.fnList();
+                    }
+                });
             },
             fnBtnRemove : function(pId){
                 let self = this;
@@ -124,7 +137,20 @@
                     }
                 });
 
+            },
+            fnAllCheck : function(){
+                let self = this;
+                if(self.checkFlg){
+                     self.productIdList = [];
+                } else {
+                    self.productIdList = [];
+                    for(let i=0; i<self.list.length; i++){
+                        self.productIdList.push(self.list[i].PRODUCT_ID); 
+                    }
+                }
+                self.checkFlg = !self.checkFlg;
             }
+            
         }, // methods
         mounted() {
             // 처음 시작할 때 실행되는 부분
