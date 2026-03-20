@@ -191,3 +191,72 @@ h2{
 }
 
 }
+/* 학력 테이블 */
+.edu-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.edu-table th,
+.edu-table td{
+    border:1px solid #334155;
+    padding:10px;
+    text-align:center;
+}
+
+.edu-table th{
+    background:#1e293b;
+    color:#60a5fa;
+}
+
+.edu-table tr:hover{
+    background:#0f172a;
+}
+/* 사이드바 추가 스타일 */
+
+.intro-mini{
+    margin-top:10px;
+    font-size:14px;
+    color:#cbd5f5;
+}
+
+/* 스킬 태그 */
+.mini-skill{
+    margin-top:15px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    justify-content:center;
+}
+
+.mini-skill span{
+    background:#1e293b;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    color:#60a5fa;
+}
+
+/* 연락처 */
+.contact-mini{
+    margin-top:15px;
+    font-size:13px;
+    color:#94a3b8;
+}
+
+/* 버튼 */
+.sidebar button{
+    margin-top:15px;
+    padding:8px 15px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.sidebar button:hover{
+    background:#1d4ed8;
+}
